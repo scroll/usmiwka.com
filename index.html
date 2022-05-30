@@ -2,49 +2,101 @@
 layout: default
 ---
 
-<!-- Main -->
-<div id="main">
-  <!-- Header -->
-  <header id="header">
-    <h1>{{ site.header }}</h1>
-    <h2>{{ site.subheader }}</h2>
-    <p>{{ site.bio }}</p>
-    {% if site.social %}
-      <ul class="icons">
-        {% if site.social.twitter_username and site.social.twitter_username != "" %}
-          <li><a href="https://twitter.com/{{ site.social.twitter_username }}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-        {% endif %}
-        {% if site.social.facebook_username and site.social.facebook_username != "" %}
-          <li><a href="https://www.facebook.com/{{ site.social.facebook_username }}" class="icon fa-facebook-official"><span class="label">Facebook</span></a></li>
-        {% endif %}
-        {% if site.social.instagram_username and site.social.instagram_username != "" %}
-          <li><a href="https://instagram.com/{{ site.social.instagram_username }}" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-        {% endif %}
-        {% if site.social.github_username and site.social.github_username != "" %}
-          <li><a href="https://github.com/{{ site.social.github_username }}" class="icon fa-github"><span class="label">Github</span></a></li>
-        {% endif %}
-        {% if site.social.email and site.social.email != "" %}
-          <li><a href="mailto:{{ site.social.email }}" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-        {% endif %}
-      </ul>
-    {% endif %}
-  </header>
+<!-- Wrapper -->
+<div id="wrapper">
 
-  <!-- Thumbnail -->
-  <section id="thumbnails">
-    {% assign gallery = site.static_files | where: "image", true %}
-    {% for image in gallery %}
-      <article>
-        <a class="thumbnail" href="{{ site.gallery_dir }}/{{ image.name }}" data-position="{{ site.thumbnail_position }}"><img src="{{ site.gallery_dir }}/{{ image.name }}" alt="{{ image.basename }}" /></a>
-        <h2>{{ image.basename | replace: "_", " " }}</h2>
-      </article>
-    {% endfor %}
-  </section>
+    <!-- Header -->
+    <header id="header">
+        <h1><a href="index.html"><strong>{{ site.header.title }}</strong> {{ site.header.subtitle }}</a></h1>
+        <nav>
+            <ul>
+                <li><a href="#footer" class="icon fa-info-circle">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <ul class="copyright">
-      <li>{{ site.copyright }}</li>
-    </ul>
-  </footer>
+    <!-- Main -->
+    <div id="main">
+        {% for image in site.static_files %}
+        {% if image.path contains 'fulls' %}
+        <article class="thumb">
+            <a href="{{ site.baseurl }}{{ site.image_fulls_loc }}/{{ image.name }}" class="image">
+                <img src="{{ site.baseurl }}{{ site.image_thumbs_loc }}/{{ image.name }}" alt=""
+                     data-name="{{ image.name }}"/></a>
+            <!--<h2></h2>
+            <p></p>-->
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="panel">
+        <div class="inner split">
+            <div>
+                <section>
+                    <h2>{{ site.footer.name }}</h2>
+                    <p>{{ site.footer.bio }}</p>
+                    <p>{{ site.footer.github }}</p>
+                </section>
+                <section>
+                    <h2>Connect with me on ...</h2>
+                    <ul class="icons">
+                        {% if site.social_urls.facebook %}
+                            <li>
+                                <a href="{{ site.social_urls.facebook }}" class="icon fa-facebook">
+                                    <span class="label">Facebook</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.twitter %}
+                            <li>
+                                <a href="{{ site.social_urls.twitter }}" class="icon fa-twitter">
+                                    <span class="label">Twitter</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.instagram %}
+                            <li>
+                                <a href="{{ site.social_urls.instagram }}" class="icon fa-instagram">
+                                    <span class="label">Instagram</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.dribbble %}
+                            <li>
+                                <a href="{{ site.social_urls.dribbble }}" class="icon fa-dribbble">
+                                    <span class="label">Dribbble</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.github %}
+                            <li>
+                                <a href="{{ site.social_urls.github }}" class="icon fa-github">
+                                    <span class="label">GitHub</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        {% if site.social_urls.linkedin %}
+                            <li>
+                                <a href="{{ site.social_urls.linkedin }}" class="icon fa-linkedin">
+                                    <span class="label">LinkedIn</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if site.social_urls.email %}
+                            <li>
+                                <a href="mailto:{{ site.social_urls.email }}" class="icon fa-envelope-o">
+                                    <span class="label">Email</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </section>
+                <p class="copyright">
+                    &copy; {{ site.author }}. 
+                </p>
+            </div>
+        </div>
+    </footer>
 </div>

@@ -1,42 +1,26 @@
-## Site Meta ##
-# The title of the website.
-title: "Krasi Manova Photography"
-# The description of the website
-description: "Personal portfolio of Krasi Manova"
-# Keywords/tags for you site.
-keywords: "photography, blog, photography-blog, photo-blog"
-# Your copyright message.
-copyright: "Krasi Manova 2022"
+# Base configs
+baseurl: ""
+image_fulls_loc: "/images/fulls"
+image_thumbs_loc: "/images/thumbs"
+google_analytics: ""
 
-## Site Configurations ##
-# 1st heading of the site.
-header: "Krasi Manova"
-# 2nd heading/sub heading of the website.
-subheader: "Photography"
-# A description/bio of the website.
-bio: ""
-social:
-  # Your Twitter username.
-  twitter_username: ""
-  # Your Facebook username.
-  facebook_username: ""
-  # Your Instagram username.
-  instagram_username: ""
-  # GitHub username.
-  github_username: ""
-  # Your email address.
+# UI configs
+title: "Photography by Krasi Manova"
+subtitle: "See the world through my eyes!"
+author: "Krasi Manova"
+header:
+ title: "Photography"
+ subtitle: "by Krasi Manova"
+footer:
+ name: "Hey there, my name is Krasi"
+ bio: "I am a photographer and love making photos of people. Contact me if you need a lovely memories of your kids and family."
+ github: ""
+web_design: ""
+social_urls:
+  facebook: "https://www.facebook.com/krasi.manova"
+  twitter: 
+  instagram: 
+  dribbble: 
+  linkedin: "https://www.linkedin.com/in/krasimira-manova-1a91366/"
+  github:
   email: "krasi.manova@gmail.com"
-
-## Gallery Configuration ##
-# If you modify this, also modify the `default.scope.path` key below.
-gallery_dir: "gallery"
-# Any valid value of "background-position" CSS attribute.
-image_position: "left center"
-
-## Jekyll Configuration ##
-defaults:
- - scope:
-    # Should be same as the `gallery_dir` key above.
-    path: "gallery"
-   values:
-    image: true
